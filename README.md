@@ -25,6 +25,12 @@ Command
 :CtrlP : find file
 :CtrlPFunky : find function from the file
 ```
+Using command to change default ClangFprmat
+```
+$ clang-format -style=llvm -dump-config > ~/.clang-format
+$ clang-format -style=google -dump-config > ~/.clang-format
+$ clang-format -style=webkit -dump-config > ~/.clang-format
+```
 ## Screenshot
 
 ![Screenshot](./img/pic.png)
