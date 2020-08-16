@@ -1,22 +1,22 @@
 #!/bin/bash
 #
 #	Auto setup my vim environment
-#	but taglist cannot get from github, 
-#	so it should download from website
-#	https://sourceforge.net/projects/vim-taglist/
-#	unzip it and put files under  ~/.vim/doc and ~/.vim/plugin
 #
 
-sudo apt install ctags cscope clang-format
+sudo apt install ctags cscope clang-format curl
+# Pathogen
+mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 # NERDTree
 git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
 mkdir tmptosetVim
 cd tmptosetVim 
-git clone https://github.com/tpope/vim-pathogen 
-cp vim-pathogen/autoload ~/.vim/ -r
 git clone https://github.com/kana/vim-operator-user
 cp vim-operator-user/autoload/operator ~/.vim -r
 cp vim-operator-user/doc/ ~/.vim -r
+
+git clone https://github.com/yegappan/taglist.git
+cp taglist/autoload/ ~/.vim/ -r
 
 git clone https://github.com/rhysd/vim-clang-format
 cp vim-clang-format/autoload/* ~/.vim/autoload/ -r
